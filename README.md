@@ -25,6 +25,13 @@ object Test extends App {
 11
 
 
+➜  experimental-backend-2.11 git:(master) find target -name '*.class'
+target/scala-2.11/classes/Test$.class
+target/scala-2.11/classes/Test$delayedInit$body.class
+target/scala-2.11/classes/Test.class
+
+
+
 ➜  experimental-backend-2.11 git:(master) javap -c -classpath target/scala-2.11/classes/ Test\$
 [...]
   public int g();
@@ -49,5 +56,6 @@ object Test extends App {
 ```
 
 Note
+  - no classfile for the closure is generated
   - closure created using `invokedynamic`
   - the call to `m` is inlined in the closure body (`bipush 10`)
